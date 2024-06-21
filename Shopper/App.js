@@ -1,18 +1,29 @@
 import { StatusBar } from 'expo-status-bar';
-import { Button, Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {  Image, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
+import ImageViewer from './components/ImageViewer';
+import Button from './components/Button';
+import Person from './components/Person';
 const landingImage = require("./assets/landing.png")
 Image
-
+Person
 export default function App() {
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Fashion Sale</Text>
-      <View>
-        <Image source={landingImage} style={styles.image}/>
+      {/* <View style={styles.imageContainer}>
+          <ImageViewer placeholderImageSource={landingImage}/>
+      </View> */}
+      <View style={styles.footerContainer}>
+        <Button label="Choose a photo" />
+        <Button label="Use this photo" />
       </View>
-      <Pressable  title='jdf' onPress={alert("you oressd")}>
-      <Text style={styles.text}>check me out</Text>
-      </Pressable>
+      <ScrollView>
+        {
+          [...Array(30).keys()].map((_,i) => {
+            <Person key={i} personName={`Person${i}`}/>
+          }) 
+        }
+      </ScrollView>
       <StatusBar style="auto" />
     </View>
   );
@@ -32,12 +43,16 @@ const styles = StyleSheet.create({
     position:"absolute",
     top:500,
     zIndex:40,
-    fontSize:80,
+    fontSize:40,
     fontWeight:"800"
   },
   image: {
-    width: 400,
-    height: 800,
+    width: 300,
+    height: 500,
     borderRadius: 18,
+  },
+  imageContainer: {
+    flex: 1,
+    paddingTop: 58,
   },
 });
