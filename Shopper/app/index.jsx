@@ -10,9 +10,9 @@ export default function App() {
   return (
     <SafeAreaView className=" bg-black h-full">
       <ScrollView contentContainerStyle={{ height: "100%" }}>
-        <View className="w-[99%] h-[800] rounded">
+        <View className="w-full justify-center  h-[95vh] rounded">
           <Image source={icons.onboarding} className="w-full h-[750]" />
-          <Text className="text-[80px] text-white font-bold absolute top-[55%]">
+          <Text className="text-[80px] text-white font-bold absolute ml-[4%] top-[55%]">
             Fashion Sale
           </Text>
           <View className="px-6 rounded absolute top-[80%]">
